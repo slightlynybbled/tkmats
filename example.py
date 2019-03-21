@@ -59,15 +59,16 @@ class PumpFlowTest(Test):
         sleep(0.1)
 
 
-logging.basicConfig(level=logging.DEBUG)
+if __name__ == '__main__':
+    logging.basicConfig(level=logging.DEBUG)
 
-# create the sequence of test objects
-sequence = [CommunicationTest(), PumpFlowTest()]
-ts = TestSequence(sequence=sequence, auto_run=False, loglevel=logging.DEBUG)
+    # create the sequence of test objects
+    sequence = [CommunicationTest(), PumpFlowTest()]
+    ts = TestSequence(sequence=sequence, auto_run=False, loglevel=logging.DEBUG)
 
-window = tk.Tk()
+    window = tk.Tk()
 
-tkate_frame = TkAteFrame(window, ts)
-tkate_frame.grid()
+    tkate_frame = TkAteFrame(window, ts)
+    tkate_frame.grid()
 
-window.mainloop()
+    window.mainloop()
