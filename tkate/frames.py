@@ -10,6 +10,7 @@ _relief = 'sunken'
 _label_padding = 5
 
 
+# todo: wrap when the number of entries gets > some number
 class TkAteFrame(Frame):
     def __init__(self, parent, sequence: TestSequence, loglevel=logging.INFO):
         self._logger = logging.getLogger(self.__class__.__name__)
@@ -71,8 +72,8 @@ class TestLabel(Label):
 
         self._test = test
 
-        label_text = self._test.moniker.replace(' ', '\n')
-        self.config(text=label_text, relief=_relief, padding=_label_padding)
+        self._label_text = self._test.moniker.replace(' ', '\n')
+        self.config(text=self._label_text, relief=_relief, padding=_label_padding)
 
         self._label_bg_color = self.cget('background')
 
@@ -92,6 +93,16 @@ class TestLabel(Label):
         elif self._test.is_passing:
             color = _light_green
 
-        self.config(background=color)
+        value = self._test.value
+        if isinstance(value, float):
+            value_str = f'{value: .02f}'
+        else:
+            value_str = f'{value}'
+        if self._test.value and len(value_str) < 8:
+            label_text = f'{self._label_text}\n({value_str})'
+        else:
+            label_text = self._label_text
+
+        self.config(background=color, text=label_text)
 
         self.after(100, self._update)
