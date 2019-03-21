@@ -6,6 +6,8 @@ from ate import Test, TestSequence
 _light_green = '#66ff66'
 _light_red = '#ff6666'
 _light_yellow = '#ffff99'
+_relief = 'sunken'
+_label_padding = 5
 
 
 class TkAteFrame(Frame):
@@ -21,27 +23,28 @@ class TkAteFrame(Frame):
         row = 0
         col = 0
 
-        Button(self, text='Start', command=sequence.start).grid(row=row, column=col)
+        Button(self, text='Start', command=sequence.start).grid(row=row, column=col, sticky='news')
 
         col += 1
-        Label(self, text='\u27a4').grid(row=row, column=col)
+        Label(self, text='\u27a4').grid(row=row, column=col, sticky='news')
 
         col += 1
         self._test_status_frames = []
         for test in self._sequence.tests:
             self._test_status_frames.append(
-                TestStatusFrame(self, test)
+                TestLabel(self, test)
             )
 
-        for i, tf in enumerate(self._test_status_frames):
+        for i, tl in enumerate(self._test_status_frames):
             col += 1
-            tf.grid(row=row, column=col)
+            tl.grid(row=row, column=col, sticky='news')
             col += 1
-            Label(self, text='\u27a4').grid(row=row, column=col)
+            Label(self, text='\u27a4').grid(row=row, column=col, sticky='news')
 
         col += 1
         self._complete_label = Label(self, text='-', anchor='center', justify='center')
         self._complete_label.grid(row=row, column=col, sticky='news')
+        self._complete_label.config(relief=_relief, padding=_label_padding)
 
         self._update()
 
@@ -58,7 +61,7 @@ class TkAteFrame(Frame):
         self.after(100, self._update)
 
 
-class TestStatusFrame(Frame):
+class TestLabel(Label):
     def __init__(self, parent, test: Test, loglevel=logging.INFO):
         self._logger = logging.getLogger(self.__class__.__name__)
         self._logger.setLevel(loglevel)
@@ -69,23 +72,26 @@ class TestStatusFrame(Frame):
         self._test = test
 
         label_text = self._test.moniker.replace(' ', '\n')
-        self._label = Label(self, text=label_text, anchor='center', justify='center')
-        self._label.grid()
+        self.config(text=label_text, relief=_relief, padding=_label_padding)
 
-        self._label_bg_color = self._label.cget('background')
+        self._label_bg_color = self.cget('background')
 
         self._update()
 
     def _update(self):
+        color = self._label_bg_color
+
         if self._test.status == 'waiting':
-            self._label.config(background=self._label_bg_color)
+            color = self._label_bg_color
         elif self._test.status == 'running':
-            self._label.config(background=_light_yellow)
+            color = _light_yellow
         elif self._test.status == 'aborted':
-            self._label.config(background=_light_red)
-        elif not self._test.test_is_passing:
-            self._label.config(background=_light_red)
-        elif self._test.test_is_passing:
-            self._label.config(background=_light_green)
+            color = _light_red
+        elif not self._test.is_passing:
+            color = _light_red
+        elif self._test.is_passing:
+            color = _light_green
+
+        self.config(background=color)
 
         self.after(100, self._update)
