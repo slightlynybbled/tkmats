@@ -112,10 +112,14 @@ class TestLabel(Label):
 
         value = self._test.value
         if isinstance(value, float):
-            value_str = f'{value: .02f}'
+            value_str = f'{value: .03f}'
         else:
-            value_str = f'{value}'
-        if self._test.value and len(value_str) < 12:
+            try:
+                value_str = f'{value.magnitude: .03f}'
+            except AttributeError:
+                value_str = f'{value}'
+
+        if value_str and len(value_str) < 12:
             label_text = f'{self._label_text}\n({value_str})'
         else:
             label_text = self._label_text
