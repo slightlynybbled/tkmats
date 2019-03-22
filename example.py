@@ -68,7 +68,7 @@ if __name__ == '__main__':
 
     window = tk.Tk()
 
-    tkate_frame = TkAteFrame(window, ts)
+    tkate_frame = TkAteFrame(window, ts, vertical=True)
     tkate_frame.grid()
 
     window.mainloop()
