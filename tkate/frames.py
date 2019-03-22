@@ -115,7 +115,7 @@ class TestLabel(Label):
             value_str = f'{value: .02f}'
         else:
             value_str = f'{value}'
-        if self._test.value and len(value_str) < 8:
+        if self._test.value and len(value_str) < 12:
             label_text = f'{self._label_text}\n({value_str})'
         else:
             label_text = self._label_text
