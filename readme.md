@@ -50,10 +50,6 @@ which the `TkAteFrame` is to be embedded.
 There are two tests that are executed here, one `CommunicationTest` and one `PumpTest`.  Screenshots
 of various possible scenarios are shown here:
 
-## Starting the Program
-
-![Starting the Program Screenshot](images/on-open.png)
-
 ## Communications Test Failure
 
 ![Communications Test Failure Screenshot](images/on-fail-comm.png)
