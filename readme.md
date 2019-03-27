@@ -52,12 +52,12 @@ of various possible scenarios are shown here:
 
 ## Communications Test Failure
 
-![Communications Test Failure Screenshot](images/on-fail-comm.png)
+![Communications Test Failure Screenshot](/images/on-fail-comm.png)
 
 ## Flow Test Failure
 
-![Flow Test Failure Screenshot](images/on-fail-flow.png)
+![Flow Test Failure Screenshot](/images/on-fail-flow.png)
 
 ## All Passing
 
-![All Passing Screenshot](images/on-pass.png)
+![All Passing Screenshot](/images/on-pass.png)
