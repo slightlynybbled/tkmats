@@ -10,9 +10,10 @@ _relief = 'sunken'
 _label_padding = 5
 
 
-# todo: wrap when the number of entries gets > some number
 class TkAteFrame(Frame):
-    def __init__(self, parent, sequence: TestSequence, vertical=False, loglevel=logging.INFO):
+    def __init__(self, parent, sequence: TestSequence,
+                 vertical=False, start_btn=True,
+                 loglevel=logging.INFO):
         self._logger = logging.getLogger(self.__class__.__name__)
         self._logger.setLevel(loglevel)
 
@@ -26,7 +27,8 @@ class TkAteFrame(Frame):
         row = 0
         col = 0
 
-        Button(self, text='Start', command=sequence.start).grid(row=row, column=col, sticky='news')
+        if start_btn:
+            Button(self, text='Start', command=sequence.start).grid(row=row, column=col, sticky='news')
 
         if not vertical:
             col += 1 if not vertical else 0
@@ -39,7 +41,7 @@ class TkAteFrame(Frame):
         self._test_status_frames = []
         for test in self._sequence.tests:
             self._test_status_frames.append(
-                TestLabel(self, test, vertical=vertical)
+                _TestLabel(self, test, vertical=vertical)
             )
 
         for i, tl in enumerate(self._test_status_frames):
@@ -76,7 +78,10 @@ class TkAteFrame(Frame):
         self.after(100, self._update)
 
 
-class TestLabel(Label):
+class _TestLabel(Label):
+    """
+    A single instance of a test label frame.
+    """
     def __init__(self, parent, test: Test, vertical: bool, loglevel=logging.INFO):
         self._logger = logging.getLogger(self.__class__.__name__)
         self._logger.setLevel(loglevel)
@@ -97,6 +102,11 @@ class TestLabel(Label):
         self._update()
 
     def _update(self):
+        """
+        Updates the test label display based on the status of the Test
+
+        :return: None
+        """
         color = self._label_bg_color
 
         if self._test.status == 'waiting':
