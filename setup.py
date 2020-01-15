@@ -11,16 +11,16 @@ with open('requirements.txt', 'r') as f:
     requirements = [r for r in requirements if r]
 
 setup_attributes = {
-    'name': 'tkate',
+    'name': 'tkmats',
     'version': __version__,
     'description': 'A tkinter-based front-end GUI for trigger and monitoring hardware tests based on the ATE package',
     'long_description': long_description,
     'long_description_content_type': 'text/markdown',
-    'url': 'https://github.com/slightlynybbled/tkate',
+    'url': 'https://github.com/slightlynybbled/tkmats',
     'author': 'Jason R. Jones',
     'author_email': 'slightlynybbled@gmail.com',
     'license': 'MIT',
-    'packages': ['tkate'],
+    'packages': ['tkmats'],
     'python_requires': '>=3.6.0',
     'install_requires': requirements,
     'classifiers': [
