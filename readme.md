@@ -1,6 +1,6 @@
-# Tk-Automated Test Environment (TkATE)
+# Tk Manufacturing Automated Test System (TkMATS)
 
-The [Automated Test Environment](https://github.com/slightlynybbled/ate) is a Python library
+The [Manufacturing Automated Test System](https://github.com/slightlynybbled/mats) is a Python library
 which provides useful structure for test creation and execution, but does not provide a user-defined
 method of controlling that test environment.  The purpose of this project is to provide the
 start button and to provide visual feedback as to the actual test that is executing.  The
@@ -14,7 +14,7 @@ Installation is as easy as `pip install tkate`.
 # Usage
 
 You must set up your test so that it can successfully execute on the 
-[ATE](https://github.com/slightlynybbled/ate).  Once it is set up there, then you are just a couple
+[MATS](https://github.com/slightlynybbled/mats).  Once it is set up there, then you are just a couple
 of lines away from converting an ATE-based test to a TkATE.
 
 We will start with the example application located within the ATE repository.  The high-level

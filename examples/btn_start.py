@@ -3,9 +3,9 @@ from random import random, choice
 from time import sleep
 import tkinter as tk
 
-from ate import Test
-from ate import TestSequence
-from tkate import TkAteFrame
+from mats import Test
+from mats import TestSequence
+from tkmats import TkAteFrame
 
 
 # The CommunicationTest class shows the minimum test structure that might

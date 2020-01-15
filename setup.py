@@ -1,5 +1,5 @@
 from setuptools import setup
-from tkate import __version__
+from tkmats import __version__
 
 # read the long description
 with open('readme.md', 'r') as f:
