@@ -13,7 +13,7 @@ with open('requirements.txt', 'r') as f:
 setup_attributes = {
     'name': 'tkmats',
     'version': __version__,
-    'description': 'A tkinter-based front-end GUI for trigger and monitoring hardware tests based on the ATE package',
+    'description': 'A tkinter-based front-end GUI for trigger and monitoring hardware tests based on the MATS package',
     'long_description': long_description,
     'long_description_content_type': 'text/markdown',
     'url': 'https://github.com/slightlynybbled/tkmats',
