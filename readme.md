@@ -61,3 +61,10 @@ of various possible scenarios are shown here:
 ## All Passing
 
 ![All Passing Screenshot](images/on-pass.png)
+
+## Animated Example
+
+![Animation of Test](images/tkmats-animation.gif)
+
+Note that the tests that fail will turn red while the tests that pass will turn
+green.  Any failing tests will trigger a final "fail" at the bottom.
