@@ -1,4 +1,4 @@
-from tkmats.frames import TkAteFrame
+from tkmats.frames import TkMatsFrame
 from tkmats.version import __version__
 
-__all__ = ['TkAteFrame', '__version__']
+__all__ = ['TkMatsFrame', '__version__']

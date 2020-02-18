@@ -10,7 +10,7 @@ _relief = 'sunken'
 _label_padding = 5
 
 
-class TkAteFrame(Frame):
+class TkMatsFrame(Frame):
     def __init__(self, parent, sequence: TestSequence,
                  vertical=False, start_btn=True,
                  loglevel=logging.INFO):

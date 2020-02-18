@@ -11,7 +11,7 @@ import tkinter as tk
 
 from mats import Test
 from mats import TestSequence
-from tkmats import TkAteFrame
+from tkmats import TkMatsFrame
 
 
 # The CommunicationTest class shows the minimum test structure that might
@@ -79,7 +79,7 @@ if __name__ == '__main__':
 
     entry.bind('<Tab>', lambda _: ts.start())
 
-    tkate_frame = TkAteFrame(window, ts, vertical=True, start_btn=False)
+    tkate_frame = TkMatsFrame(window, ts, vertical=True, start_btn=False)
     tkate_frame.grid(row=2, column=0)
 
     window.mainloop()

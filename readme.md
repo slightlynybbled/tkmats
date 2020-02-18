@@ -9,13 +9,13 @@ window.
 
 # Installation
 
-Installation is as easy as `pip install tkate`.
+Installation is as easy as `pip install tkmats`.
 
 # Usage
 
 You must set up your test so that it can successfully execute on the 
 [MATS](https://github.com/slightlynybbled/mats).  Once it is set up there, then you are just a couple
-of lines away from converting an ATE-based test to a TkATE.
+of lines away from converting an ATE-based test to a TkMATS.
 
 We will start with the example application located within the ATE repository.  The high-level
 functional bits are copied here for reference:
@@ -30,7 +30,7 @@ functional bits are copied here for reference:
         sleep(2.0)
 
 Note that the test was simply started using the `TestSequence.start()` method.  Since we are
-going to have a test frame that comes with TkATE, then we won't require the automated start and
+going to have a test frame that comes with TkMATS, then we won't require the automated start and
 can, instead, rely on the user button supplied.  Our complete sequence could be as simple as:
 
     # create the sequence of test objects
@@ -39,13 +39,13 @@ can, instead, rely on the user button supplied.  Our complete sequence could be 
 
     window = tk.Tk()
 
-    tkate_frame = TkAteFrame(window, ts)
-    tkate_frame.grid()
+    tkmats_frame = TkMatsFrame(window, ts)
+    tkmats_frame.grid()
 
     window.mainloop()
 
 Note that most of the added code is related to simply creating the `window` object within
-which the `TkAteFrame` is to be embedded.
+which the `TkMatsFrame` is to be embedded.
 
 There are two tests that are executed here, one `CommunicationTest` and one `PumpTest`.  Screenshots
 of various possible scenarios are shown here:
