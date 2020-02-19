@@ -7,6 +7,12 @@ start button and to provide visual feedback as to the actual test that is execut
 implementation is done using a `tkinter.Frame` subclass which may be embedded into any tkinter-style
 window.
 
+# Status
+
+This package still functions; however, its functionality has been factored into MATS
+and this package will be abandoned as a standalone package.  Please continue to use
+MATS and refactor any uses of TkMATS to utilize the [built-in elements](https://mats.readthedocs.io/en/latest/pages/gui.html).
+
 # Installation
 
 Installation is as easy as `pip install tkmats`.
